@@ -1,0 +1,21 @@
+
+<div class="container">
+<form [formGroup]="form">
+    <label for="name">Location: </label>
+    <input formControlName="name" id="name" type="text" (focus)="resetInput()" (keyup.enter)="submit()">
+
+
+    <button type="button" (click)="updateLocation()">Update Location</button>
+</form>
+<div class="weather" *ngIf="locationData">
+    <h1> {{location}} </h1>
+
+</div>
+<h3>{{descriptionText | titlecase }} </h3>
+<h3> Feels like {{locationFeelsLike | number: '1.0-0'}} &#8451;</h3>
+<img *ngIf="description == 'Clouds'" src="./../../assets/icons/clouds.png">
+<img *ngIf="description == 'Rain'" src="./../../assets/icons/water.png">
+<img *ngIf="description == 'Clear'" src="./../../assets/icons/sunny.png">
+<img *ngIf="description == 'Dust'" src="./../../assets/icons/dust.png">
+
+</div>

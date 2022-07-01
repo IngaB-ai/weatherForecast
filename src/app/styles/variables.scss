@@ -1,0 +1,33 @@
+@import url('https://fonts.googleapis.com/css2?family=Paytone+One&family=Arimo:wght@700&display=swap');
+
+// Fonts
+$primary-font : 'Paytone One', monospace;
+$secondary-font : Arial;
+
+
+// Neutral
+$white: #FFFFFF;
+$black: #020202;
+$secondary-black: #515252;
+$grey: #EEEEEE;
+$medium-grey: #757575;
+$dark-grey: #515257;
+
+$light-grey: #ececec;
+$light-grey-2: #E5E5E5;
+$light-grey-3: #F5F6F6;
+$light-white: #FBFBFB;
+$light-white-2: #F5F5F5;
+
+$green: #8DB48E;
+$dark-green: #4D724D;
+
+// Main usage
+$primary-color: $black;
+$accent-color: $green;
+$accent-color-dark: $dark-green;
+$background-color: $light-white-2;
+$text-color: $black;
+$secondary-text-color: $secondary-black;
+$header-font: $primary-font;
+$text-font: $secondary-font;
