@@ -1,6 +1,11 @@
 # LocalForecast
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
+![image](https://user-images.githubusercontent.com/58734028/176947700-a47973b6-81ca-46dd-8660-1c03a8460b25.png)
+
+## Instalation of npm packages
+
+Run npm install --save --legacy-peer-deps. Because of use of @angular-redux/store npm package
 
 ## Development server
 
