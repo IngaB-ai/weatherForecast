@@ -71,6 +71,10 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
+            "options": {
+              "browserTarget": "local-forecast:build",
+              "proxyConfig": "src/proxy.conf.json"
+            },
             "production": {
               "browserTarget": "localForecast:build:production"
             },
@@ -102,6 +106,37 @@
               "src/styles.scss"
             ],
             "scripts": []
+          }
+        },
+        "cypress-run": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "localForecast:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "localForecast:serve:production"
+            }
+          }
+        },
+        "cypress-open": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "watch": true,
+            "headless": false
+          }
+        },
+        "e2e": {
+          "builder": "@cypress/schematic:cypress",
+          "options": {
+            "devServerTarget": "localForecast:serve",
+            "watch": true,
+            "headless": false
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "localForecast:serve:production"
+            }
           }
         }
       }
