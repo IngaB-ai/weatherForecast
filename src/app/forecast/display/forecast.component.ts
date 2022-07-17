@@ -15,18 +15,9 @@ import { switchMap } from 'rxjs/operators';
 })
 export class ForecastComponent implements OnInit {
 
-  allData: any;
-  location = "";
-  description: string = "";
-  descriptionText: string = "";
-  locationData: any;
-  locationFeelsLike: number = 0;
-  forecastData: any[] = [];
+  x: any;
   // @ts-ignore
-  courseObs: Observable<any>;
-  subscription$: Subscription = Subscription.EMPTY;
-  x: any = null;
-
+  forecastData$: Observable<any>;
 
 
   constructor(private forecastService: ForecastService) {
@@ -45,23 +36,10 @@ export class ForecastComponent implements OnInit {
 
 
   getForecast(city: string) {
-
-    this.subscription$ = this.forecastService.getCityByTemperature(city).subscribe((x: any) => {
-      this.locationData = x;
-      this.location = this.locationData?.name;
-      this.description = this.locationData?.weather[0]?.main.toLowerCase();
-      this.descriptionText = this.locationData?.weather[0]?.description;
-      this.locationFeelsLike = this.locationData?.main?.feels_like;
-
-    });
-
+    this.forecastData$ = this.forecastService.getCityByTemperature(city)
   }
 
-  ngOnDestroy(): void {
-    if (this.subscription$) {
-      this.subscription$.unsubscribe();
-    }
-  }
+
 
 
 }

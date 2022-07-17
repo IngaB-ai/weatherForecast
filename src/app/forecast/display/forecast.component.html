@@ -1,14 +1,16 @@
 <div class="container">
 
     <app-search (searchcriteria)="getForecast($event)"></app-search>
+   
+    <div class="weather" >
+      
+         <h1 class="title"> {{(forecastData$| async)?.name }}  </h1> 
 
-    <div class="weather" *ngIf="locationData">
-        <h1 class="title"> {{location}} </h1>
+    </div> 
+    <h3>{{(forecastData$| async)?.weather[0]?.description | titlecase }} </h3>
+    <h3> Feels like {{(forecastData$| async)?.main?.feels_like | number: '1.0-0'}} &#8451;</h3>
 
-    </div>
-    <h3>{{descriptionText | titlecase }} </h3>
-    <h3> Feels like {{locationFeelsLike | number: '1.0-0'}} &#8451;</h3>
-
-    <img *ngIf="description" [src]='"./../../assets/icons/"+ description +".png"'>
+    <img *ngIf="(forecastData$| async)?.weather[0]?.main.toLowerCase()" [src]='"./../../assets/icons/"+ (forecastData$| async)?.weather[0]?.main.toLowerCase() +".png"'> 
+<!-- </div>  -->
 
 </div>
