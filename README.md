@@ -11,7 +11,7 @@ Run npm install --save --legacy-peer-deps. Because of use of @angular-redux/stor
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Running http requests
+## Running HTTP requests
 
 For running http requests use CORS chrome extensions. For this project I am using Moesif CORS.
 
