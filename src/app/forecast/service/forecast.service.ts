@@ -3,6 +3,7 @@ import { IForecastData } from '../models/forecastResponseModel';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
 
 
 
@@ -10,10 +11,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 
-export class ForecastService {
+export class ForecastService implements Resolve<any> {
 
   constructor(private http: HttpClient) { }
 
+  resolve(): Observable<any> {
+    return this.initLocalData();
+ }
 
   /** GET forecast by city */
   getCityByTemperature(location: string): Observable<IForecastData> {
@@ -21,6 +25,7 @@ export class ForecastService {
    }
 
   initLocalData() {
+    console.log("resolver works")
     return this.http.get<any>("https://geolocation-db.com/json")
 
   }

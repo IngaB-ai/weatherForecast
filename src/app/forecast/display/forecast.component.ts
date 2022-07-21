@@ -7,6 +7,7 @@ import { Observable, Subscription } from 'rxjs';
 // import { getCityTemperature } from '../store/stories/actions';
 import { ForecastService } from './../service/forecast.service';
 import { switchMap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-forecast',
@@ -15,23 +16,21 @@ import { switchMap } from 'rxjs/operators';
 })
 export class ForecastComponent implements OnInit {
 
-  x: any;
+  localCity: any;
   // @ts-ignore
   forecastData$: Observable<any>;
 
 
-  constructor(private forecastService: ForecastService) {
+  constructor(private forecastService: ForecastService, private activeRoute: ActivatedRoute) {
 
   }
 
   ngOnInit() {
 
-    this.forecastService.initLocalData().subscribe(x => {
-      this.x = x;
-      this.getForecast(this.x?.city);
-
-    });
-
+    this.activeRoute.data.subscribe(data => {
+      this.localCity = data.locationResolver;
+      this.getForecast(this.localCity?.city);
+    })
   }
 
 
