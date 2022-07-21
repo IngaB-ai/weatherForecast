@@ -16,6 +16,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class ForecastComponent implements OnInit {
 
+  loading = true;
   localCity: any;
   // @ts-ignore
   forecastData$: Observable<any>;
@@ -35,7 +36,8 @@ export class ForecastComponent implements OnInit {
 
 
   getForecast(city: string) {
-    this.forecastData$ = this.forecastService.getCityByTemperature(city)
+    this.forecastData$ = this.forecastService.getCityByTemperature(city);
+    this.loading = false;
   }
 
 

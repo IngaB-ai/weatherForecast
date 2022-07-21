@@ -9,8 +9,10 @@
     </div> 
     <h3>{{(forecastData$| async)?.weather[0]?.description | titlecase }} </h3>
     <h3> Feels like {{(forecastData$| async)?.main?.feels_like | number: '1.0-0'}} &#8451;</h3>
-
+     
     <img *ngIf="(forecastData$| async)?.weather[0]?.main.toLowerCase()" [src]='"./../../assets/icons/"+ (forecastData$| async)?.weather[0]?.main.toLowerCase() +".png"'> 
-<!-- </div>  -->
-
+    <div *ngIf="loading" class="spinner">
+        <object data="./../../assets/spinners/spinner.svg" type="image/svg+xml">
+          </object>
+    </div>
 </div>
